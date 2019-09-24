@@ -15,6 +15,8 @@
 		64612FE0233A45A4006057B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64612FDE233A45A4006057B0 /* LaunchScreen.storyboard */; };
 		64612FEB233A45A5006057B0 /* LiveNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64612FEA233A45A5006057B0 /* LiveNewsTests.swift */; };
 		64612FF6233A45A5006057B0 /* LiveNewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64612FF5233A45A5006057B0 /* LiveNewsUITests.swift */; };
+		64613009233A4671006057B0 /* RobotoSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64613007233A4671006057B0 /* RobotoSlab-Bold.ttf */; };
+		6461300A233A4671006057B0 /* RobotoSlab-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64613008233A4671006057B0 /* RobotoSlab-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		64612FF1233A45A5006057B0 /* LiveNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiveNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64612FF5233A45A5006057B0 /* LiveNewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveNewsUITests.swift; sourceTree = "<group>"; };
 		64612FF7233A45A5006057B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64613007233A4671006057B0 /* RobotoSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Bold.ttf"; sourceTree = "<group>"; };
+		64613008233A4671006057B0 /* RobotoSlab-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +103,12 @@
 		64612FD2233A45A2006057B0 /* LiveNews */ = {
 			isa = PBXGroup;
 			children = (
-				64612FD3233A45A2006057B0 /* AppDelegate.swift */,
-				64612FD5233A45A2006057B0 /* SceneDelegate.swift */,
-				64612FD7233A45A2006057B0 /* ViewController.swift */,
+				6461300F233A46F0006057B0 /* AppDelegate */,
+				6461300E233A46E7006057B0 /* Model */,
+				6461300D233A46DF006057B0 /* ViewModel */,
+				6461300C233A46DB006057B0 /* View */,
+				6461300B233A46D2006057B0 /* ViewControllers */,
+				64613003233A45DB006057B0 /* Resources */,
 				64612FD9233A45A2006057B0 /* Main.storyboard */,
 				64612FDC233A45A4006057B0 /* Assets.xcassets */,
 				64612FDE233A45A4006057B0 /* LaunchScreen.storyboard */,
@@ -126,6 +133,61 @@
 				64612FF7233A45A5006057B0 /* Info.plist */,
 			);
 			path = LiveNewsUITests;
+			sourceTree = "<group>";
+		};
+		64613003233A45DB006057B0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				64613006233A4644006057B0 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		64613006233A4644006057B0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				64613007233A4671006057B0 /* RobotoSlab-Bold.ttf */,
+				64613008233A4671006057B0 /* RobotoSlab-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		6461300B233A46D2006057B0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				64612FD7233A45A2006057B0 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6461300C233A46DB006057B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6461300D233A46DF006057B0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6461300E233A46E7006057B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6461300F233A46F0006057B0 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				64612FD3233A45A2006057B0 /* AppDelegate.swift */,
+				64612FD5233A45A2006057B0 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +294,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64613009233A4671006057B0 /* RobotoSlab-Bold.ttf in Resources */,
+				6461300A233A4671006057B0 /* RobotoSlab-Regular.ttf in Resources */,
 				64612FE0233A45A4006057B0 /* LaunchScreen.storyboard in Resources */,
 				64612FDD233A45A4006057B0 /* Assets.xcassets in Resources */,
 				64612FDB233A45A2006057B0 /* Main.storyboard in Resources */,
