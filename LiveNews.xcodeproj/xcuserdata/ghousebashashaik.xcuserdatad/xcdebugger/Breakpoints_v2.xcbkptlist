@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "56AF4909-8FB1-436C-8CFF-C78136B9B5B9"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FC66392A-4592-47DC-883E-B8A9C40B47C3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LiveNews/ViewControllers/NewsHomeScreen.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "fetchData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FC66392A-4592-47DC-883E-B8A9C40B47C3 - 6f7ae81da3123be"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (LiveNews.NewsHeadlinesModel) -&gt; () in LiveNews.ViewController.fetchData() -&gt; ()"
+                  moduleName = "LiveNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ghousebashashaik/Desktop/Ghouse%20Personal/Projects/LiveNews/LiveNews/ViewControllers/NewsHomeScreen.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "884">
+               </Location>
+               <Location
+                  uuid = "FC66392A-4592-47DC-883E-B8A9C40B47C3 - 7a1239adf3ef72b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #1 (LiveNews.NewsHeadlinesModel) -&gt; () in LiveNews.ViewController.fetchData() -&gt; ()"
+                  moduleName = "LiveNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ghousebashashaik/Desktop/Ghouse%20Personal/Projects/LiveNews/LiveNews/ViewControllers/NewsHomeScreen.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
