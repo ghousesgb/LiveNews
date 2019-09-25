@@ -64,4 +64,12 @@ extension NewsHomeScreen: UITableViewDataSource {
     }
 }
 
-
+extension NewsHomeScreen: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CELL_HEIGHT.ARTICLE_CELL
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}

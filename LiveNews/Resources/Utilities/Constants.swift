@@ -7,13 +7,10 @@
 //
 
 import Foundation
-
+import UIKit
 
 let NEWS_API_KEY = "36147d4ea82747cd86d9428b94001272"
 let HEADLINES_URL = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=" + NEWS_API_KEY
-
-
-
 
 let SUCCESS = "SUCCESS"
 let FAILURE = "FAILURE"
@@ -37,4 +34,8 @@ struct CELL_IDENTIFIER {
 
 struct DATE_FORMATS {
     static let PUBLISH_AT_FORMAT = "yyyy-MM-dd"
+}
+
+struct CELL_HEIGHT {
+    static let ARTICLE_CELL:CGFloat = 188.0
 }

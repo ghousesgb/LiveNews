@@ -21,6 +21,7 @@ class DatabaseManager {
             news.publishedAt    =   article.publishedAt
             news.newsImage      =   article.newsImageURL
             news.newsContent    =   article.newsContent
+            
             PersistenceService.saveContext()
         }
         resultHandler(SUCCESS)
