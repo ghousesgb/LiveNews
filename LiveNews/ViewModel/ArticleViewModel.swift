@@ -10,12 +10,14 @@ import Foundation
 
 class ArticleViewModel {
     
+    var articleViewModel = [ArticleViewModel]()
+    
     let title: String
     let sourceName: String
     let publishedAt: Date
     let newsImageURL: String
     let newsContent: String
-    
+    //init() {}
     init(article: Article) {
         self.title          =   article.title ?? "-"
         self.sourceName     =   article.source?.name ?? "-"
@@ -24,13 +26,5 @@ class ArticleViewModel {
         self.newsContent    =   article.content ?? "-"
     }
     
-    func fetchData(successHandler:@escaping(NewsHeadlinesModel)  -> Void, failureHandler:@escaping (String) -> Void) {
-        APIServices().fetchNewsHeadlines(successHandler: {[unowned self] (newsViewModel) in
-            let art = newsViewModel.articles
-            let articleViewModel = art?.map({return ArticleViewModel(article: $0)}) ?? []
-            successHandler(articleViewModel)
-        }) { (failureString) in
-            failureHandler(failureString)
-        }
-    }
+    
 }

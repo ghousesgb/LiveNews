@@ -15,6 +15,8 @@ let HEADLINES_URL = "https://newsapi.org/v2/top-headlines?country=us&category=bu
 
 
 
+let SUCCESS = "SUCCESS"
+let FAILURE = "FAILURE"
 
 struct CustomError {
     static let msgInvalidUsernameAndPassword = "Incorrect Username or Password, try again."

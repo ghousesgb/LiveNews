@@ -19,28 +19,34 @@ class NewsHomeScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchData()
+        fetchDataFromService()
     }
     
-    func fetchData() {
+    func fetchDataFromService() {
         ActivityIndicatorUtility.showActivityIndicator(uiView: self.view)
-        
-        
-        
-        
-        
         APIServices().fetchNewsHeadlines(successHandler: {[unowned self] (newsViewModel) in
             let art = newsViewModel.articles
             self.articleViewModel = art?.map({return ArticleViewModel(article: $0)}) ?? []
-            DispatchQueue.main.async {
-                ActivityIndicatorUtility.hideActivityIndicator(uiView: self.view)
-                self.newsTableView.reloadData()
+            DatabaseManager.shared.saveArticle(articleList: self.articleViewModel) { (result) in
+                DispatchQueue.main.async {
+                    ActivityIndicatorUtility.hideActivityIndicator(uiView: self.view)
+                    self.fetchDataFromDB()
+                }
             }
         }) { (failureString) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async {[unowned self] in
                 ActivityIndicatorUtility.hideActivityIndicator(uiView: self.view)
-                Alert().showAlert(ALERT_MESSAGES.TITLE_PROBLEM, message: failureString, okButtonTitle: ALERT_MESSAGES.ALERT_OK_TITLE, CompletionHandler: nil, View: self)
+                //When API Calling failed due to offline or other issues, lets load data from DB.
+                self.fetchDataFromDB()
+                //Alert().showAlert(ALERT_MESSAGES.TITLE_PROBLEM, message: failureString, okButtonTitle: ALERT_MESSAGES.ALERT_OK_TITLE, CompletionHandler: nil, View: self)
             }
+        }
+    }
+    
+    func fetchDataFromDB() {
+        DispatchQueue.main.async {[unowned self] in
+            self.articleViewModel = DatabaseManager.shared.fetchNewsArticles()
+            self.newsTableView.reloadData()
         }
     }
 }
