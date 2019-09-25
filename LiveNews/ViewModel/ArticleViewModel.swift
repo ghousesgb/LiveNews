@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ArticleViewModel {
+class ArticleViewModel {
     
     let title: String
     let sourceName: String
@@ -24,4 +24,13 @@ struct ArticleViewModel {
         self.newsContent    =   article.content ?? "-"
     }
     
+    func fetchData(successHandler:@escaping(NewsHeadlinesModel)  -> Void, failureHandler:@escaping (String) -> Void) {
+        APIServices().fetchNewsHeadlines(successHandler: {[unowned self] (newsViewModel) in
+            let art = newsViewModel.articles
+            let articleViewModel = art?.map({return ArticleViewModel(article: $0)}) ?? []
+            successHandler(articleViewModel)
+        }) { (failureString) in
+            failureHandler(failureString)
+        }
+    }
 }

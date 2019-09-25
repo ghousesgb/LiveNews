@@ -15,6 +15,7 @@ let HEADLINES_URL = "https://newsapi.org/v2/top-headlines?country=us&category=bu
 
 
 
+
 struct CustomError {
     static let msgInvalidUsernameAndPassword = "Incorrect Username or Password, try again."
     static let msgNetworkError = "Network Failed"
@@ -26,4 +27,12 @@ struct ALERT_MESSAGES {
     static let TITLE_PROBLEM = "PROBLEM"
     static let ALERT_OK_TITLE = "OK"
     static let ALERT_CANCEL_TITLE = "Cancel"
+}
+
+struct CELL_IDENTIFIER {
+    static let NEWS_CELL = "newsCell"
+}
+
+struct DATE_FORMATS {
+    static let PUBLISH_AT_FORMAT = "yyyy-MM-dd"
 }
