@@ -9,56 +9,45 @@
 import UIKit
 
 class NewsHomeScreen: UIViewController {
-
-    var articleViewModel = [ArticleViewModel]()
-    @IBOutlet weak var newsTableView: UITableView!
+    var articleVM = ArticleViewModel()
     
-    override var prefersStatusBarHidden: Bool {
-        return false
-    }
+    @IBOutlet weak var newsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchDataFromService()
     }
     
-    func fetchDataFromService() {
-        ActivityIndicatorUtility.showActivityIndicator(uiView: self.view)
-        APIServices().fetchNewsHeadlines(successHandler: {[unowned self] (newsViewModel) in
-            let art = newsViewModel.articles
-            self.articleViewModel = art?.map({return ArticleViewModel(article: $0)}) ?? []
-            DatabaseManager.shared.saveArticle(articleList: self.articleViewModel) { (result) in
-                DispatchQueue.main.async {
-                    ActivityIndicatorUtility.hideActivityIndicator(uiView: self.view)
-                    self.fetchDataFromDB()
-                }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SEQUE_IDENTIFIER.SHOW_NEWS_DETAILS_SEQUE {
+            if let indexPath = newsTableView.indexPathForSelectedRow {
+                let newsDetailedViewController = segue.destination as! NewsDetailedScreen
+                newsDetailedViewController.articalViewModel = articleVM.getArticleAtIndex(index: indexPath.row)
             }
-        }) { (failureString) in
-            DispatchQueue.main.async {[unowned self] in
-                ActivityIndicatorUtility.hideActivityIndicator(uiView: self.view)
-                //When API Calling failed due to offline or other issues, lets load data from DB.
-                self.fetchDataFromDB()
-                //Alert().showAlert(ALERT_MESSAGES.TITLE_PROBLEM, message: failureString, okButtonTitle: ALERT_MESSAGES.ALERT_OK_TITLE, CompletionHandler: nil, View: self)
-            }
-        }
-    }
-    
-    func fetchDataFromDB() {
-        DispatchQueue.main.async {[unowned self] in
-            self.articleViewModel = DatabaseManager.shared.fetchNewsArticles()
-            self.newsTableView.reloadData()
         }
     }
 }
-
+// MARK: - Fetching Data from Service and Local Database
+extension NewsHomeScreen {
+    func fetchDataFromService() {
+        ActivityIndicatorUtility.showActivityIndicator(uiView: self.view)
+        articleVM.fetchDataFromService(resultHandler: {[unowned self] result in
+            DispatchQueue.main.async {[unowned self] in
+                ActivityIndicatorUtility.hideActivityIndicator(uiView: self.view)
+                self.newsTableView.reloadData()
+            }
+        })
+    }
+}
+// MARK: - TableDataSource
 extension NewsHomeScreen: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articleViewModel.count
+        return articleVM.getNumberOfRowsInSection(section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CELL_IDENTIFIER.NEWS_CELL, for: indexPath) as! NewsTableCell
-        let articleObj = articleViewModel[indexPath.row]
+        let articleObj =  articleVM.getArticleAtIndex(index: indexPath.row)
         cell.articleObj = articleObj
         return cell
     }
@@ -70,6 +59,6 @@ extension NewsHomeScreen: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: SEQUE_IDENTIFIER.SHOW_NEWS_DETAILS_SEQUE, sender: indexPath)
     }
 }

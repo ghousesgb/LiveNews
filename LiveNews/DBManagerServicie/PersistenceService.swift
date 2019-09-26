@@ -45,10 +45,31 @@ class PersistenceService {
         return container
     }()
 
+    
+    static func getCurrentContext() -> NSManagedObjectContext {
+        let currentMOC = context
+        let thread = Thread.current
+        if thread.isMainThread {
+            return currentMOC
+        }
+
+        if let threadedMOC = thread.threadDictionary["MOC_KEY"] as? NSManagedObjectContext {
+            return threadedMOC
+        }
+        let moc = backgroundContext
+        thread.threadDictionary.setObject(moc, forKey: "MOC_KEY" as NSCopying)
+        return moc
+    }
+
+    static var backgroundContext: NSManagedObjectContext = {
+        let newbackgroundContext = persistentContainer.newBackgroundContext()
+        newbackgroundContext.automaticallyMergesChangesFromParent = true
+        return newbackgroundContext
+    }()
     // MARK: - Core Data Saving support
 
     static func saveContext () {
-        let context = persistentContainer.viewContext
+        let context = getCurrentContext() //persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()

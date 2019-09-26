@@ -39,3 +39,8 @@ struct DATE_FORMATS {
 struct CELL_HEIGHT {
     static let ARTICLE_CELL:CGFloat = 188.0
 }
+
+
+struct SEQUE_IDENTIFIER {
+    static let SHOW_NEWS_DETAILS_SEQUE = "showNewsDetailsSegue"
+}
