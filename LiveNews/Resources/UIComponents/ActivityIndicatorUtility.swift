@@ -20,6 +20,7 @@ class ActivityIndicatorUtility {
      @param uiView - add activity indicator to this view
      */
     static func showActivityIndicator(uiView: UIView) {
+        uiView.accessibilityIdentifier = "ActivityIndicatorView"
         container.frame = uiView.bounds
         container.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         

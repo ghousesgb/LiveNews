@@ -17,7 +17,6 @@ class LiveNewsTests: XCTestCase {
         articleVM.fetchDataFromService { (result) in
             let articleViewModelCount = articleVM.articleViewModel.count
             let getNumberOfRowsInSeciont = articleVM.getNumberOfRowsInSection(section: 0)
-            
             XCTAssertTrue(articleViewModelCount == getNumberOfRowsInSeciont, "testCheckingCountOfRecords() succeeded")
         }
     }

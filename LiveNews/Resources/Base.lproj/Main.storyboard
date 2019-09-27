@@ -29,6 +29,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="H E A D L I N E S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDC-rx-vQk">
                                         <rect key="frame" x="8" y="32" width="359" height="44"/>
+                                        <accessibility key="accessibilityConfiguration" hint="Table Navigation Title" identifier="tableHeadlingLabel"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="2sZ-wT-tAc"/>
                                         </constraints>
@@ -58,13 +59,16 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newsThumbnailBG" translatesAutoresizingMaskIntoConstraints="NO" id="2Ud-g1-OlG">
                                                     <rect key="frame" x="0.0" y="8" width="343" height="172"/>
+                                                    <accessibility key="accessibilityConfiguration" hint="Article ImageView" identifier="articleImageView"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3L-on-Klp">
                                                     <rect key="frame" x="0.0" y="8" width="343" height="172"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.44622217465753422" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.24660209760273974" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <accessibility key="accessibilityConfiguration" hint="Gradient View" identifier="gradientView"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyJ-mk-efO">
                                                     <rect key="frame" x="15" y="146" width="313" height="21"/>
+                                                    <accessibility key="accessibilityConfiguration" hint="Article Source and PublishAt Label" identifier="articleSourceAndPublishAtLable"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="aFb-bb-f31"/>
                                                     </constraints>
@@ -74,6 +78,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKd-nQ-DpD">
                                                     <rect key="frame" x="15" y="55" width="313" height="83"/>
+                                                    <accessibility key="accessibilityConfiguration" hint="Article Heading Label" identifier="articleHeadingTitleLabel"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="83" id="DRv-01-vtv"/>
                                                     </constraints>
@@ -102,6 +107,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" hint="Table Article Cell" identifier="articleCell"/>
                                         <connections>
                                             <outlet property="newsHeading" destination="wKd-nQ-DpD" id="y7q-uZ-mAH"/>
                                             <outlet property="newsSubHeading" destination="VyJ-mk-efO" id="Cnd-a6-0pb"/>
@@ -116,6 +122,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" name="backgroundGrey"/>
+                        <accessibility key="accessibilityConfiguration" hint="News Home Screen View" identifier="homeScreenMainView"/>
                         <constraints>
                             <constraint firstItem="zOc-TC-KHP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="A0G-G5-MXD"/>
                             <constraint firstItem="rVN-ql-6iZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-10" id="OW0-3y-9g2"/>
@@ -147,13 +154,16 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newsThumbnailBG" translatesAutoresizingMaskIntoConstraints="NO" id="NNb-1J-Frm">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <accessibility key="accessibilityConfiguration" hint="News Image View" identifier="newsDetailedImageView"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rFV-Ae-sfT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.24355201201643842" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" hint="Gradient View" identifier="newsDetailsGradientView"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3XB-uA-KEv">
                                 <rect key="frame" x="13" y="9" width="50" height="50"/>
+                                <accessibility key="accessibilityConfiguration" hint="Back Navigation Button" identifier="backNavigationButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="cL5-3G-9b9"/>
                                     <constraint firstAttribute="width" constant="50" id="lwV-YE-cQP"/>
@@ -166,24 +176,27 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0b-f6-uK1">
                                 <rect key="frame" x="24" y="501" width="327" height="100"/>
+                                <accessibility key="accessibilityConfiguration" hint="Details News Content" identifier="detailedNewsContentLabel"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="s3q-8c-iFe"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="s3q-8c-iFe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="14"/>
                                 <color key="textColor" name="BASubTitle"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KfT-2G-nZJ">
-                                <rect key="frame" x="24" y="462.5" width="327" height="26.5"/>
+                                <rect key="frame" x="24" y="465.5" width="327" height="23.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wE-Ya-b9m">
-                                        <rect key="frame" x="0.0" y="0.0" width="196" height="26.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="196" height="23.5"/>
+                                        <accessibility key="accessibilityConfiguration" hint="News Source" identifier="newsSourceLabel"/>
                                         <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="20"/>
                                         <color key="textColor" name="F2HeadTitle"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8Q-gI-Hl2">
-                                        <rect key="frame" x="196" y="0.0" width="131" height="26.5"/>
+                                        <rect key="frame" x="196" y="0.0" width="131" height="23.5"/>
+                                        <accessibility key="accessibilityConfiguration" hint="Publish Date" identifier="publishAtLabel"/>
                                         <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="20"/>
                                         <color key="textColor" name="F2HeadTitle"/>
                                         <nil key="highlightedColor"/>
@@ -194,7 +207,8 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qy2-sC-5ba">
-                                <rect key="frame" x="24" y="312.5" width="327" height="100"/>
+                                <rect key="frame" x="24" y="315.5" width="327" height="100"/>
+                                <accessibility key="accessibilityConfiguration" hint="News Headlines" identifier="newsHeadlinesLabel"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Lsl-cQ-lhf"/>
                                 </constraints>
@@ -204,6 +218,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <accessibility key="accessibilityConfiguration" hint="News Details Main View" identifier="newsDetailsMainView"/>
                         <constraints>
                             <constraint firstItem="3XB-uA-KEv" firstAttribute="leading" secondItem="lBC-lB-QJ2" secondAttribute="leading" constant="13" id="28N-mR-eaZ"/>
                             <constraint firstItem="qy2-sC-5ba" firstAttribute="leading" secondItem="E0b-f6-uK1" secondAttribute="leading" id="7K3-UW-mB7"/>
