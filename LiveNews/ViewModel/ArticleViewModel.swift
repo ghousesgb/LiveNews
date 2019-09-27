@@ -17,7 +17,7 @@ class ArticleViewModel {
     var publishedAt: Date = Date()
     var newsImageURL: String = ""
     var newsContent: String = ""
-    //init() {}
+    
     init(article: Article? = nil) {
         if let article = article {
             self.title          =   article.title ?? "-"
@@ -29,6 +29,7 @@ class ArticleViewModel {
     }
 }
 
+// MARK: - Helper functions for TableViews
 extension ArticleViewModel {
     func getNumberOfRowsInSection(section: Int) -> Int {
         return articleViewModel.count

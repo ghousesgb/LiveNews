@@ -44,3 +44,10 @@ struct CELL_HEIGHT {
 struct SEQUE_IDENTIFIER {
     static let SHOW_NEWS_DETAILS_SEQUE = "showNewsDetailsSegue"
 }
+
+struct DB_ACTION_STATUS {
+    static let UDPATE = "UPDATE"
+    static let DELETE = "DELETE"
+    static let ADD    = "ADD"
+    
+}

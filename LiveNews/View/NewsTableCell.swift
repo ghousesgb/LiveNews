@@ -25,20 +25,16 @@ class NewsTableCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
 
     func configureNewsCell() {
-        
         //News Title
         newsHeading.text = articleObj?.title ?? "---"
-        
         //Author
         var authorDetails = ""
         if let author =  articleObj?.sourceName {
             authorDetails = author
         }
-
         //publisedAt
         var publisedAtString = ""
         if let publisedAt =  articleObj?.publishedAt {

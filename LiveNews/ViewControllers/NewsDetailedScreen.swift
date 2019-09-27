@@ -27,8 +27,6 @@ class NewsDetailedScreen: UIViewController {
         configureUI()
     }
     
-    
-    
     func configureUI() {
         guard let articalVM = articalViewModel else { return }
         

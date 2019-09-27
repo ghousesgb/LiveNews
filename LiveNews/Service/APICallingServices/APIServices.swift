@@ -9,7 +9,10 @@
 import Foundation
 
 class APIServices {
-    func fetchNewsHeadlines(successHandler:@escaping(NewsHeadlinesModel)  -> Void, failureHandler:@escaping (String) -> Void) {
+    typealias successHandler = (NewsHeadlinesModel)  -> Void
+    typealias failureHandler = (String) -> Void
+    
+    func fetchNewsHeadlines(successHandler:@escaping successHandler, failureHandler:@escaping  failureHandler) {
         
         let apiRequest = APIRequest()
         apiRequest.urlString = HEADLINES_URL

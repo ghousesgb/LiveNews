@@ -7,6 +7,9 @@
 //
 
 import Foundation
+/**
+ Class to create request object
+ */
 class APIRequest {
     var urlString : String = ""
     var httpMethod : String = "GET"

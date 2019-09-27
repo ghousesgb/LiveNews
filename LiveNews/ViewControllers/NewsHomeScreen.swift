@@ -39,7 +39,7 @@ extension NewsHomeScreen {
         })
     }
 }
-// MARK: - TableDataSource
+// MARK: - TableView DataSource
 extension NewsHomeScreen: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return articleVM.getNumberOfRowsInSection(section: section)
@@ -47,12 +47,12 @@ extension NewsHomeScreen: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CELL_IDENTIFIER.NEWS_CELL, for: indexPath) as! NewsTableCell
-        let articleObj =  articleVM.getArticleAtIndex(index: indexPath.row)
-        cell.articleObj = articleObj
+        cell.articleObj =  articleVM.getArticleAtIndex(index: indexPath.row)
         return cell
     }
 }
 
+// MARK: - TableView Delegate
 extension NewsHomeScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CELL_HEIGHT.ARTICLE_CELL
