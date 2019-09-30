@@ -8,6 +8,21 @@
 
 import UIKit
 
+struct structExample {
+    var age: Int
+    
+    mutating func updateAge() {
+        age += 5
+    }
+}
+class classExample {
+    var age: Int = 0
+    
+    func updateAge() {
+        age += 5
+    }
+}
+
 class NewsHomeScreen: UIViewController {
     var articleVM = ArticleViewModel()
     
@@ -15,6 +30,37 @@ class NewsHomeScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let arrayExample = [10, 20, 40]
+        let tupleExample = (age: 108, name: "Hello")
+        let dictExample:[String: Any]  = ["age": 10, "name": "Raj"]
+        print(arrayExample[0])
+        print(tupleExample.age)
+        print(dictExample["age"] as! Int)
+        
+        let multipleString = #"""
+                            you can "raw"
+                            on multiple lines
+                            with swift 5. name = \#(dictExample["name"]!)
+                            """#
+        let hashTagString = ##" "hashtag" #Swift 5"##
+        
+        print(multipleString)
+        print(hashTagString)
+
+        var s1 = structExample(age: 0)
+        let c1 = classExample()
+        print(s1.age, " ", c1.age)
+        s1.age = 10
+        c1.age = 10
+        print(s1.age, " ", c1.age)
+        let s2 = s1
+        let c2 = c1
+        print(s2.age, " ", c2.age)
+        s1.age = 20
+        c1.age = 20
+        print(s2.age, " ", c2.age)
+        
         fetchDataFromService()
     }
     

@@ -67,7 +67,7 @@ class DatabaseManager {
         let news = News(context: PersistenceService.getCurrentContext())
         news.title          =   article.title
         news.sourceName     =   article.sourceName
-        news.publishedAt    =   article.publishedAt
+        news.publishedAt    =   Utilities.getFormattedDate(date: article.publishedAt, format: DATE_FORMATS.PUBLISH_AT_FORMAT)
         news.newsImage      =   article.newsImageURL
         news.newsContent    =   article.newsContent
         
@@ -102,7 +102,7 @@ class DatabaseManager {
                                       articleDescription: "",
                                       url: "",
                                       urlToImage: articleObj.newsImage ?? "",
-                                      publishedAt: articleObj.publishedAt,
+                                      publishedAt: Utilities.getFormattedDate(date: articleObj.publishedAt, format: DATE_FORMATS.PUBLISH_AT_FORMAT),
                                       content: articleObj.newsContent ?? "")
                 articleViewModel.append(ArticleViewModel(article: article))
             }
