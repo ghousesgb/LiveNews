@@ -5,9 +5,9 @@ on:
     branches: 
       - master
 env:
-      SCHEME: "Debug"
-      DEVICE: "iPhone 11"
-      DERIVED_DATA_PATH: "DerivedData"
+  SCHEME: "Debug"
+  DEVICE: "iPhone 11"
+  DERIVED_DATA_PATH: "DerivedData"
   
 jobs:
   build:
