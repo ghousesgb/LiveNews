@@ -18,7 +18,7 @@ jobs:
         env:
           IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
       - name: Action
-        uses: actions/checkout@master
+        uses: actions/checkout@master_v1.0
       - name: Build
         run: |
           xcodebuild archive \
