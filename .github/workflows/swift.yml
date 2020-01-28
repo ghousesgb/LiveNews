@@ -34,7 +34,7 @@ jobs:
             -scheme $SCHEME \
             -sdk iphoneos13.2 \
             -configuration Debug \
-            -archivePath $PWD/build/appname.xcarchive \
+            -archivePath $PWD/build/LiveNews.xcarchive \
             IPHONEOS_DEPLOYMENT_TARGET=9.0
             PROVISIONING_PROFILE="profile.mobileprovision.gpg" \
             CODE_SIGN_IDENTITY="iPhone Distribution: GE Consumer & Industrial (BQ7X69DNU7)"
@@ -42,6 +42,6 @@ jobs:
         run: |
           cd ios && xcodebuild \
             -exportArchive \
-            -archivePath $PWD/build/appname.xcarchive \
+            -archivePath $PWD/build/LiveNews.xcarchive \
             -exportOptionsPlist $PWD/ci.plist \
             -exportPath $PWD/build
