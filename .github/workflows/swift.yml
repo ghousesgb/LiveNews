@@ -18,7 +18,7 @@ jobs:
       - name: Build
         run: |
           xcodebuild archive \
-            -workspace appname.xcworkspace \
+            -workspace LiveNews.xcodeproj \
             -scheme $SCHEME \
             -sdk iphoneos13.2 \
             -configuration Debug \
