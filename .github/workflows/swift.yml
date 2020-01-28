@@ -36,6 +36,7 @@ jobs:
             -archivePath 'build/LiveNews.xcarchive' 
             PROVISIONING_PROFILE="profile.mobileprovision.gpg" \
             CODE_SIGN_IDENTITY="iPhone Distribution: GE Consumer & Industrial (BQ7X69DNU7)"
+            
       - name: Export app
         run: |
           xcodebuild -exportArchive \
@@ -44,3 +45,7 @@ jobs:
             -exportOptionsPlist 'LiveNews/exportOptionsPlist.plist' \
             -allowProvisioningUpdates
             
+      - name: Deploy to App Center
+        run: |
+          npm install appcenter-cli@2.3.3
+          npx appcenter distribute release --token "${{secrets.APP_CENTER_TOKEN}}"  --file "build/LiveNews.ipa" --release-notes "$(git log -1 --pretty=format:%s)" --debug
