@@ -14,8 +14,8 @@ jobs:
     runs-on: macOS-latest
 
   steps:
-    - uses: actions/checkout@v1.0.0
     - name: Build
+      uses: actions/checkout@master
       run: |
           set -o pipefail && xcodebuild build -scheme $SCHEME -destination "platform=iOS Simulator,name=$DEVICE" -derivedDataPath $DERIVED_DATA_PATH build-for-testing | xcpretty --color --simple
 
