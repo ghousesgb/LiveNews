@@ -14,7 +14,7 @@ jobs:
     runs-on: macOS-latest
     steps:
       - name: Action
-        uses: ghousesgb/checkout@master
+        uses: actions/checkout@master
       
       - name: Install gpg
         run: brew install gnupg
