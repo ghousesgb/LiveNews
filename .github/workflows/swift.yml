@@ -13,6 +13,10 @@ jobs:
   build:
     runs-on: macOS-latest
     steps:
+      - name: Setup provisioning profile
+        run: ./.github/secrets/decrypt_secrets.sh
+        env:
+          IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
       - name: Action
         uses: actions/checkout@master
       - name: Build
