@@ -4,7 +4,12 @@
 <dict>
     <key>method</key>
     <string>ad-hoc</string>
-    <key>teamID</key>
-    <string>BQ7X69DNU7</string>
+		<key>compileBitcode</key>
+    <false/>
+    <key>provisioningProfiles</key>
+    <dict>
+        <key>com.gead.GEADWarehouseNew</key>
+        <string>profile.mobileprovision.gpg</string>
+    </dict>
 </dict>
 </plist>
