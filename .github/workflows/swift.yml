@@ -13,6 +13,10 @@ jobs:
   build:
     runs-on: macOS-latest
     steps:
+      - name: Setup provisioning profile
+        run: ./.github/secrets/decrypt_secrets.sh
+        env:
+          IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
       - name: Action
         uses: actions/checkout@master
       - name: Build
@@ -24,3 +28,12 @@ jobs:
             -configuration Debug \
             -archivePath $PWD/build/appname.xcarchive \
             IPHONEOS_DEPLOYMENT_TARGET=9.0
+            PROVISIONING_PROFILE="profile.mobileprovision.gpg" \
+            CODE_SIGN_IDENTITY="iPhone Distribution: GE Consumer & Industrial (BQ7X69DNU7)"
+      - name: Export app
+        run: |
+          cd ios && xcodebuild \
+            -exportArchive \
+            -archivePath $PWD/build/appname.xcarchive \
+            -exportOptionsPlist $PWD/ci.plist \
+            -exportPath $PWD/build
