@@ -41,7 +41,6 @@ jobs:
           xcodebuild -exportArchive \
             -archivePath 'build/LiveNews.xcarchive' \
             -exportPath "build/LiveNews.ipa" \
-            -exportOptionsPlist 'LiveNews/Resources/Info.plist' \
+            -exportOptionsPlist 'LiveNews/exportOptionsPlist.plist' \
             -allowProvisioningUpdates
-            PROVISIONING_PROFILE="profile.mobileprovision.gpg" \
-            CODE_SIGN_IDENTITY="iPhone Distribution: GE Consumer & Industrial (BQ7X69DNU7)"
+            
