@@ -41,4 +41,4 @@ jobs:
           xcodebuild -exportArchive \
             -archivePath 'build/LiveNews.xcarchive' \
             -exportPath "build/LiveNews.ipa" \
-            -exportProvisioningProfile "profile.mobileprovision.gpg"
+            PROVISIONING_PROFILE="profile.mobileprovision.gpg" 
