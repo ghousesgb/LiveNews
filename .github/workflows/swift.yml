@@ -13,13 +13,21 @@ jobs:
   build:
     runs-on: macOS-latest
     steps:
+      - name: Action
+        uses: ghousesgb/checkout@master
+      
+      - name: Install gpg
+        run: brew install gnupg
+      
+      - name: Switch XCode Version
+        run: sudo xcode-select -s /Applications/Xcode_11.2.app
+      
       - name: Setup provisioning profile
         run: /.github/secrets/decrypt_secrets.sh
         env:
           IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
-      - name: Action
-        uses: actions/checkout@master
-      - name: Build
+      
+      - name: Build app
         run: |
           xcodebuild archive \
             -project LiveNews.xcodeproj \
