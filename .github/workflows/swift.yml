@@ -14,7 +14,7 @@ jobs:
     runs-on: macOS-latest
 
   steps:
-    - uses: ghousesgb/LiveNews@90935625d7
+    - uses: ghousesgb/LiveNews@master
     - name: Build
       run: |
           set -o pipefail && xcodebuild build -scheme $SCHEME -destination "platform=iOS Simulator,name=$DEVICE" -derivedDataPath $DERIVED_DATA_PATH build-for-testing | xcpretty --color --simple
