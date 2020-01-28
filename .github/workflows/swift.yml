@@ -32,8 +32,8 @@ jobs:
           xcodebuild archive \
             -project LiveNews.xcodeproj \
             -scheme LiveNews \
-            -sdk iphoneos
-            -archivePath 'build/LiveNews.xcarchive'
+            -sdk iphoneos \
+            -archivePath 'build/LiveNews.xcarchive' \
             PROVISIONING_PROFILE="profile.mobileprovision.gpg" \
             CODE_SIGN_IDENTITY="iPhone Distribution: GE Consumer & Industrial (BQ7X69DNU7)"
       - name: Export app
