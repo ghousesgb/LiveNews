@@ -38,8 +38,9 @@ jobs:
             CODE_SIGN_IDENTITY="iPhone Distribution: GE Consumer & Industrial (BQ7X69DNU7)"
       - name: Export app
         run: |
-          xcodebuild \
-            -exportArchive \
+          xcodebuild -exportArchive \
             -archivePath 'build/LiveNews.xcarchive' \
-            -exportOptionsPlist 'LiveNews/Resources/info.plist' \
-            -exportPath 'build'
+            -exportPath "build/LiveNews.ipa" \
+            -exportOptionsPlist 'LiveNews/exportOptionsPlist.plist' \
+            -allowProvisioningUpdates
+            
