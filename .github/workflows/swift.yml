@@ -5,17 +5,22 @@ on:
     branches: 
       - master
 env:
-  SCHEME: "Debug"
+  SCHEME: "LiveNews"
   DEVICE: "iPhone 11"
   DERIVED_DATA_PATH: "DerivedData"
   
 jobs:
   build:
     runs-on: macOS-latest
-
-  steps:
-  - uses: actions/checkout@master
-  - name: Build
-    run: |
-        set -o pipefail && xcodebuild clean -scheme $SCHEME -destination "platform=iOS Simulator,name=$DEVICE" -derivedDataPath $DERIVED_DATA_PATH build-for-testing | xcpretty --color --simple
-
+    steps:
+      - name: Action
+        uses: actions/checkout@master
+      - name: Build
+        run: |
+          xcodebuild archive \
+            -project LiveNews.xcodeproj \
+            -scheme $SCHEME \
+            -sdk iphoneos13.2 \
+            -configuration Debug \
+            -archivePath $PWD/build/appname.xcarchive \
+            IPHONEOS_DEPLOYMENT_TARGET=9.0
