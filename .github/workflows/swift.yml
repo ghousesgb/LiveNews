@@ -14,7 +14,7 @@ jobs:
     runs-on: macOS-latest
     steps:
       - name: Setup provisioning profile
-        run: ./.github/secrets/decrypt_secrets.sh
+        run: .github/secrets/decrypt_secrets.sh
         env:
           IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
       - name: Action
