@@ -27,9 +27,9 @@ jobs:
             PROVISIONING_PROFILE="profile.mobileprovision.gpg" \
             CODE_SIGN_IDENTITY="iPhone Distribution: GE Consumer & Industrial (BQ7X69DNU7)"
       - name: Export app
-      run: |
-        cd ios && xcodebuild \
-          -exportArchive \
-          -archivePath $PWD/build/appname.xcarchive \
-          -exportOptionsPlist $PWD/ci.plist \
-          -exportPath $PWD/build
+        run: |
+          cd ios && xcodebuild \
+            -exportArchive \
+            -archivePath $PWD/build/appname.xcarchive \
+            -exportOptionsPlist $PWD/ci.plist \
+            -exportPath $PWD/build
