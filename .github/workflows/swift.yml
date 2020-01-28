@@ -41,5 +41,5 @@ jobs:
           xcodebuild \
             -exportArchive \
             -archivePath 'build/LiveNews.xcarchive' \
-            -exportOptionsPlist 'ci.plist' \
+            -exportOptionsPlist 'LiveNews/Resources/info.plist' \
             -exportPath 'build'
