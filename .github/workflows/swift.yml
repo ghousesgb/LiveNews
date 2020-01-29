@@ -45,7 +45,7 @@ jobs:
             -exportOptionsPlist 'LiveNews/exportOptionsPlist.plist' \
             -allowProvisioningUpdates
             
-      - name: Deploy to App Center
+      - name: Deploy to App Center And Send mail to testers
         run: |
           npm install appcenter-cli@2.3.3
           npx appcenter distribute release --token "${{secrets.APP_CENTER_TOKEN}}" --app "gea_mobileteam/LiveNews" --group "Testers" --file "build/LiveNews.ipa/LiveNews.ipa" --release-notes "$(git log -1 --pretty=format:%s)"
